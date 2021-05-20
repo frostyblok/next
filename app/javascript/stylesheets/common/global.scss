@@ -29,7 +29,7 @@ h2 {
   color: $black-color;
   font-weight: 400;
   font-family: 'Montserrat';
-  background-image: url('../images/signup-bg.jpg');
+  //background-image: url('../images/signup-bg.jpg');
   background-repeat: no-repeat;
   @include background-size(cover);
   background-position: center center !important;
@@ -44,7 +44,7 @@ body, html {
   background-size: cover;
   height: 100%;
   background-repeat: no-repeat;
-  background-image: url('../images/signup-bg.jpg');
+  //background-image: url('../images/signup-bg.jpg');
 }
 .container {
   width: 660px;

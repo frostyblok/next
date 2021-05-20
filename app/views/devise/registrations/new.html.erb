@@ -1,29 +1,45 @@
-<h2>Sign up</h2>
+<div class="main" data-controller="devise">
+	<section class="signup">
+		<div class="container">
+			<div class="signup-content col col-sm-12 col-lg-7 m-auto space-bottom-3">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+				<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: 'signup-form', class: 'signup-form' }) do |f| %>
+					<%= f.error_notification %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+					<h2 class="form-title mb-3">Create account</h2>
+					<%= f.input :first_name, label: false, class: 'form-control', placeholder: 'First Name', required: true %>
+					<%= f.input :last_name, label: false, class: 'form-control', placeholder: 'Last Name', required: true %>
+					<%= f.input :email,
+											label: false,
+											placeholder: 'Email',
+											class: 'form-control',
+											required: true,
+											autofocus: true,
+											input_html: { autocomplete: "email" }%>
+					<%= f.input :password,
+											label: false,
+											class: 'form-control',
+											placeholder: 'Password',
+											required: true,
+											hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+											input_html: { autocomplete: "new-password", "data-devise-target" => "password"} %>
+					<span toggle="#password" class="fa fa-eye field-icon toggle-password" data-devise-target="passwordToggle" data-action="click->devise#togglePassword"></span>
+					<%= f.input :password_confirmation,
+											label: false,
+											class: 'form-control',
+											placeholder: 'Confirm Password',
+											required: true,
+											input_html: { autocomplete: "new-password", class: 'form-input' } %>
+					<input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+					<label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+					<div class="form-actions mb-3">
+						<%= f.button :submit, "Sign up", class: 'form-submit' %>
+					</div>
+				<% end %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+				<%= render "devise/shared/links" %>
+			</div>
+		</div>
+	</section>
+</div>

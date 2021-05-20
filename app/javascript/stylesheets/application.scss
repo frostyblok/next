@@ -3,5 +3,5 @@
 @import 'common/variable.scss';
 @import 'common/global.scss';
 @import 'layout/responsive.scss';
-@import '/custom_bootstrap.scss';
-@import '/app/javascript/stylesheets/authentication/devise';
+@import './custom_bootstrap.scss';
+@import './authentication/devise.scss';
