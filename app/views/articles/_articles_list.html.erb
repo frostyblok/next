@@ -1,8 +1,17 @@
 <div>
 	<div class="articles-wrapper">
 		<% articles.each do |article| %>
-			<div class="article">
-				<p><%= article %></p>
+
+
+			<div class="jumbotron">
+				<div class="container">
+					<h1 class="display-4"><%= article.title %></h1>
+					<p class="lead"><%= article.body  %></p>
+					<hr class="my-4">
+					<p class="lead">
+						<%= link_to 'Read more...', article_path(article), class:'btn btn-booking btn-lg btn-success' %>
+					</p>
+				</div>
 			</div>
 		<% end %>
 	</div>

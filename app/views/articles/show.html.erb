@@ -1,0 +1,12 @@
+<div class="jumbotron">
+	<div class="container">
+		<div class="display-4">
+			<% if @article.image.attached? %>
+				<%= link_to (image_tag @article.image, class: 'invoice-logo') %>
+			<% end %>
+		</div>
+		<h1 class="display-4"><%= @article.title %></h1>
+		<p class="lead"><%= @article.body  %></p>
+		<hr class="my-4">
+	</div>
+</div>

@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     get "user_settings", to: "devise/registrations#edit"
   end
 
-  resource :articles
+  resources :articles
 end

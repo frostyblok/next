@@ -2,7 +2,7 @@
 	<%= f.error_notification %>
 	<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-
+	<%= f.input :user_id, :as => :hidden, :input_html => { :value => "#{current_user.id}" } %>
 	<div class="form-inputs mb-3">
 		<p>Title</p>
 		<%= f.input :title, id: 'name', label:false%>
@@ -14,8 +14,8 @@
 	</div>
 
 	<div class="form-inputs mb-3">
-		<p>Screenshot</p>
-		<%= f.file_field :screenshot, class:"btn btn-primary form-control" %>
+		<p>Image</p>
+		<%= f.file_field :image, class:"btn btn-primary form-control" %>
 	</div>
 
 	<div class="form-inputs mb-3">
@@ -26,6 +26,4 @@
 	<div class="form-actions mb-3">
 		<%= f.button :submit, class:'btn btn-major-brand-lightblue create-service' %>
 	</div>
-
-	<%= f.input :user_id, :as => :hidden, :input_html => { :value => "#{current_user&.id}" } %>
 <% end %>

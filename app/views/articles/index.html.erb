@@ -1,12 +1,14 @@
 <h2 class="page-title bg-major-brand-lightblue mb-5">Articles</h2>
 <!-- Content Section -->
 <div class="container">
-	<%= render 'articles_list', articles: @articles %>
+
 
 	<div class="row">
 		<div class="col-12">
-			<%= link_to 'Add New Article +', new_articles_path, class:'btn btn-major-brand-magenta' %>
+			<%= link_to 'Add New Article +', new_article_path, class:'btn btn-major-brand-magenta' %>
 		</div>
 	</div>
+
+	<%= render 'articles_list', articles: @articles %>
 
 </div>
