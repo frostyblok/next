@@ -74,3 +74,17 @@ body, html {
   margin-bottom: 0px !important;
   position: absolute !important;
 }
+
+.notification {
+  border-radius: 0;
+  width: 20rem;
+  height: 4rem;
+  z-index: 99;
+  position: fixed;
+  bottom: 5px;
+  left: 5px;
+}
+
+.notification:not(:last-child) {
+  margin-bottom: 0;
+}

@@ -1,10 +1,12 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     sign_in_merchant
+    flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
   end
 
   def google_oauth2
     sign_in_merchant
+    flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Google"
   end
 
   private

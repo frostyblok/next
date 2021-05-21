@@ -1,0 +1,31 @@
+<%= simple_form_for @article do |f| %>
+	<%= f.error_notification %>
+	<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+
+	<div class="form-inputs mb-3">
+		<p>Title</p>
+		<%= f.input :title, id: 'name', label:false%>
+	</div>
+
+	<div class="form-inputs mb-3">
+		<p>Description</p>
+		<%= f.input :description, id: 'service_sub_header', label:false %>
+	</div>
+
+	<div class="form-inputs mb-3">
+		<p>Screenshot</p>
+		<%= f.file_field :screenshot, class:"btn btn-primary form-control" %>
+	</div>
+
+	<div class="form-inputs mb-3">
+		<p>Body</p>
+		<%= f.text_area :body, id: 'description', rows: 5, cols: 25, :class => "form-control tinymce" %>
+	</div>
+
+	<div class="form-actions mb-3">
+		<%= f.button :submit, class:'btn btn-major-brand-lightblue create-service' %>
+	</div>
+
+	<%= f.input :user_id, :as => :hidden, :input_html => { :value => "#{current_user&.id}" } %>
+<% end %>

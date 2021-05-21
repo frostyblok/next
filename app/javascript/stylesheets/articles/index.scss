@@ -1,0 +1,7 @@
+.articles-wrapper {
+  width: 80%;
+  margin: 0px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em
+}
