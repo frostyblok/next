@@ -1,12 +1,32 @@
 <div class="jumbotron">
-	<div class="container">
-		<div class="display-4">
-			<% if @article.image.attached? %>
-				<%= link_to (image_tag @article.image, class: 'invoice-logo') %>
-			<% end %>
+	<div class="article-container">
+		<div class="w-100 d-flex mb-4 justify-content-between">
+			<a href="javascript:history.back()"><i class="fa fa-arrow-circle-left" style="font-size:36px"></i></a>
+			<div class="">
+				<% if current_user && current_user.id == @article.user_id %>
+					<% if @article.draft? %>
+						<%= link_to "Publish", new_otp_secret_path(@article), class: 'btn btn-success' %>
+					<% end %>
+					<%= link_to "Edit", edit_article_path(@article), class: 'btn btn-primary' %>
+				<% end %>
+			</div>
 		</div>
-		<h1 class="display-4"><%= @article.title %></h1>
-		<p class="lead"><%= @article.body  %></p>
-		<hr class="my-4">
+		<div>
+			<h1 class="display-4"><%= @article.title %></h1>
+			<h3 class="text-left font-weight-lighter mb-4"><i><%= @article.description %></i></h3>
+			<p class="text-left">
+				<i class='fas fa-user-circle user-icon' style='font-size:36px'></i>
+				<span class="user-name"><%= @user.first_name %> <%= @user.last_name %></span>
+				<%= @article.updated_at.strftime("%B %d, %Y") %>
+			</p>
+			<div class="display-4">
+				<% if @article.image.attached? %>
+					<%= link_to image_tag @article.image %>
+				<% end %>
+			</div>
+
+			<p class="lead mt-4 text-justify"><%= @article.body  %></p>
+			<hr class="my-4">
+		</div>
 	</div>
 </div>

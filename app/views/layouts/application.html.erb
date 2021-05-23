@@ -8,6 +8,8 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+		<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
@@ -21,7 +23,10 @@
 			<p class="alert"><%= alert %></p>
 		</div>
 	<% end %>
+	<%= render 'home/header' %>
+	<div class="d-flex w-100 h-100 mx-auto flex-column" style="background: <%= current_user && current_user.background_color? ? current_user.background_color.downcase : "white" %>">
+		<%= yield %>
+	</div>
 
-    <%= yield %>
   </body>
 </html>

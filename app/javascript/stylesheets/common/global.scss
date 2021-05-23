@@ -81,10 +81,13 @@ body, html {
   height: 4rem;
   z-index: 99;
   position: fixed;
-  bottom: 5px;
-  left: 5px;
 }
 
 .notification:not(:last-child) {
   margin-bottom: 0;
+}
+.logo {
+  cursor: pointer;
+  font-size: 23px;
+  color: gainsboro;
 }

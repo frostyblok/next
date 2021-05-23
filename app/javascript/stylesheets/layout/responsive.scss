@@ -4,6 +4,7 @@
 	width: calc(100% - 40px);
 	max-width: 100%;
   }
+
 }
 
 //end 575px
@@ -11,5 +12,8 @@
   .signup-content {
 	padding: 50px 25px;
   }
-
+  .article-container {
+	width: 80%;
+	margin: 0px auto;
+  }
 }

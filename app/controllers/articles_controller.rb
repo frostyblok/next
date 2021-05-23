@@ -1,6 +1,9 @@
 class ArticlesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index, raise: false
+  before_action :set_article, only: %i[show edit update]
+
   def index
-    @articles = Article.all
+    @articles = current_user.present? ? Article.published.order('updated_at DESC') : Article.published.order('updated_at DESC')
   end
 
   def new
@@ -8,15 +11,17 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @user = User.find(@article.user_id)
   end
+
+  def edit; end
 
   def create
     @article = Article.new(article_params)
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        format.html { redirect_to new_otp_secret_path(@article), notice: 'Article saved as draft.' }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new }
@@ -25,7 +30,19 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def update
+    redirect_to new_otp_secret_path(article_id: @article.id, article_params: article_params), notice: 'Please confirm OTP to complete.'
+  end
+
+  def my_articles
+    @articles = current_user.articles.order('updated_at DESC')
+  end
+
   private
+
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
   def article_params
     params.require(:article).permit(:title, :description, :image, :body, :user_id)

@@ -1,7 +1,20 @@
-.articles-wrapper {
-  width: 80%;
-  margin: 0px auto;
+.card-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 1em
+}
+.user-icon {
+  position: relative;
+  top: 4px;
+}
+.user-name {
+  margin: 0px 5px;
+}
+.article-image-small{
+  max-width: 400px;
+  max-height: 40%;
+}
+.article-container {
+  width: 40%;
+  margin: 0px auto;
 }
