@@ -83,6 +83,4 @@ test:
 #
 production:
   <<: *default
-  database: next_production
-  username: next
-  password: <%= ENV['NEXT_DATABASE_PASSWORD'] %>
+  database: <%= Rails.application.credentials.dig(:production_db) %>
