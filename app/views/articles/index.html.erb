@@ -1,10 +1,16 @@
 <div class="container">
-	<div class="text-right">
-		<% if current_user %>
-			<%= link_to 'Add New Article +', new_article_path, class:'btn btn-secondary mt-3' %>
-		<% end %>
+	<div class="mb-3 mt-2 d-flex justify-content-between">
+		<div class="">
+			<%= form_with url: article_search_path, method: :get, local: true, class: "form-inline search-form" do |f| %>
+				<%= f.text_field :query, value: params[:query], class: "form-control mr-sm-2 search-query", placeholder: "Search Article" %>
+			<% end %>
+		</div>
+		<div class="">
+			<% if current_user %>
+				<%= link_to 'Add New Article +', new_article_path, class:'btn btn-secondary new-article' %>
+			<% end %>
+		</div>
 	</div>
 
 	<%= render 'articles_list', articles: @articles %>
-
 </div>

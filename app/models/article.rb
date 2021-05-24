@@ -5,6 +5,11 @@ class Article < ApplicationRecord
   validate :acceptable_image
   validates :title, :description, :body, presence: true
 
+  scope :search_article, ->(query:) { includes(:user).where(
+    'lower(title) LIKE lower(:search) OR lower(description) LIKE lower(:search) OR lower(body) LIKE lower(:search)',
+    search: "%#{query}%")
+  }
+
   enum state: [:draft, :published]
 
   private

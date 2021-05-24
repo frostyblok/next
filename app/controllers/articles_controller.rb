@@ -3,7 +3,12 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update]
 
   def index
-    @articles = current_user.present? ? Article.published.order('updated_at DESC') : Article.published.order('updated_at DESC')
+    @articles = if params[:query]
+                  article_search
+                else
+                  Article.published.order('updated_at DESC')
+                end
+
   end
 
   def new
@@ -42,6 +47,10 @@ class ArticlesController < ApplicationController
 
   def set_article
     @article = Article.find(params[:id])
+  end
+
+  def article_search
+    Article.published.search_article(query: params[:query]).order('updated_at DESC')
   end
 
   def article_params

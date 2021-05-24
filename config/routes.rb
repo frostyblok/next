@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :articles
 
   get "my_articles", to: "articles#my_articles", as: "my_articles"
+  get "article_search", to: "articles#index", as: "article_search"
 
   get "otp_secrets/:article_id/new", to: "otp_secrets#new", as: "new_otp_secret"
   post "otp_secrets/:article_id", to: "otp_secrets#create", as: "otp_secrets"
