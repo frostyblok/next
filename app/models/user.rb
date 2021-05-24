@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
+  validates :first_name, :last_name, presence: true
+
   has_many :articles
 
   def self.from_omniauth(auth)

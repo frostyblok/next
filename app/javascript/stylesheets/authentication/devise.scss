@@ -137,3 +137,28 @@ input[type=checkbox]:not(old):checked + label > span:before{
   position: relative;
   color: #555;
 }
+.divider {
+  color: rgb(153, 153, 153);
+  display: flex;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 20px auto;
+  width: 100%;
+}
+.divider::before {
+  content: "";
+  flex: 1 1 0%;
+  border-bottom: 1px solid rgb(216, 216, 216);
+  margin: 0px 22px 8px 0px;
+}
+.divider::after {
+  content: "";
+  flex: 1 1 0%;
+  border-bottom: 1px solid rgb(216, 216, 216);
+  margin: 0px 0px 8px 22px;
+}
+.next-socials {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+}

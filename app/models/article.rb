@@ -3,6 +3,7 @@ class Article < ApplicationRecord
   has_one_attached :image
 
   validate :acceptable_image
+  validates :title, :description, :body, presence: true
 
   enum state: [:draft, :published]
 

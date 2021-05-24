@@ -23,15 +23,12 @@
 											required: true,
 											hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
 											input_html: { autocomplete: "new-password", "data-devise-target" => "password"} %>
-					<span toggle="#password" class="fa fa-eye field-icon toggle-password" data-devise-target="passwordToggle" data-action="click->devise#togglePassword"></span>
 					<%= f.input :password_confirmation,
 											label: false,
 											class: 'form-control',
 											placeholder: 'Confirm Password',
 											required: true,
 											input_html: { autocomplete: "new-password", class: 'form-input' } %>
-					<input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-					<label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
 
 					<div class="form-actions mb-3">
 						<%= f.button :submit, "Sign up", class: 'form-submit' %>
