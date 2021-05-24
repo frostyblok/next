@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   get "article_search", to: "articles#index", as: "article_search"
 
   get "otp_secrets/:article_id/new", to: "otp_secrets#new", as: "new_otp_secret"
-  post "otp_secrets/:article_id", to: "otp_secrets#create", as: "otp_secrets"
+  post "otp_secrets/:article_id", to: "otp_secrets#verify_and_update", as: "otp_secrets"
 end
